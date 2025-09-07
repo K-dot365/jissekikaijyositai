@@ -231,15 +231,15 @@
         size:[3,3],
         labels:[
           {img:"実績解除画像/ex001.jpg",text:"9:30集合に間に合う"},
-          {img:"実績解除画像/ex001.jpg",text:"11時半お昼ご飯でうどんを食べる"},
-          {img:"実績解除画像/ex001.jpg",text:"14時ごろ栗林公園で記念撮影！"},
-          {img:"実績解除画像/ex001.jpg",text:"16時までにチェックイン"},
-          {img:"実績解除画像/ex001.jpg",text:"17時アンチックよろずやに寄る？？"},
-          {img:"実績解除画像/ex001.jpg",text:"17時~18時大急ぎ金毘羅表参道"},
-          {img:"実績解除画像/ex001.jpg",text:"ついでに金毘羅宮を参拝"},
-          {img:"実績解除画像/ex001.jpg",text:"夜ご飯を見つけよう！"},
-          {img:"実績解除画像/ex001.jpg",text:"20時半~宿でまったり"},
-          {img:"実績解除画像/ex051.jpg",text:"初日を楽しんだぞ！！"},
+          {img:"実績解除画像/ex002.jpg",text:"11時半お昼ご飯でうどんを食べる"},
+          {img:"実績解除画像/ex003.jpg",text:"14時ごろ栗林公園で記念撮影！"},
+          {img:"実績解除画像/ex004.jpg",text:"16時までにチェックイン"},
+          {img:"実績解除画像/ex005.jpg",text:"17時アンチックよろずやに寄る？？"},
+          {img:"実績解除画像/ex006.jpg",text:"17時~18時大急ぎ金毘羅表参道"},
+          {img:"実績解除画像/ex007.jpg",text:"ついでに金毘羅宮を参拝"},
+          {img:"実績解除画像/ex008.jpg",text:"夜ご飯を見つけよう！"},
+          {img:"実績解除画像/ex009.jpg",text:"20時半~宿でまったり"},
+          {img:"実績解除画像/ex008.jpg",text:"初日を楽しんだぞ！！"},
         ],
         legendary:[8]
       },
@@ -247,15 +247,15 @@
         size:[4,3],
         labels:[
           {img:"実績解除画像/st001.jpg",text:"おはよう"},
-          {img:"実績解除画像/ex001.jpg",text:"10時チェックアウト"},
-          {img:"実績解除画像/ex001.jpg",text:"10時半～四国水族館"},
+          {img:"実績解除画像/ex004.jpg",text:"10時チェックアウト"},
+          {img:"実績解除画像/st003.jpg",text:"10時半～四国水族館"},
           {img:"実績解除画像/ex001.jpg",text:"さすがにうどん以外の昼ご飯"},
-          {img:"実績解除画像/ex001.jpg",text:"15時~17時天空の鳥居？？"},
-          {img:"実績解除画像/ex001.jpg",text:"17時~18時半夕日の父母ヶ浜"},
+          {img:"実績解除画像/st006.jpg",text:"15時~17時天空の鳥居？？"},
+          {img:"実績解除画像/st004.jpg",text:"17時~18時半夕日の父母ヶ浜"},
           {img:"実績解除画像/ex001.jpg",text:"夜ご飯はやっぱりうどん！"},
-          {img:"実績解除画像/ex001.jpg",text:"19時半~20時半天空の鳥居？？"},
+          {img:"実績解除画像/st006.jpg",text:"19時半~20時半天空の鳥居？？"},
           {img:"実績解除画像/ex001.jpg",text:"23時ごろ着 無事に帰りましょう！"},
-          {img:"実績解除画像/ex001.jpg",text:"旅行めちゃめちゃ楽しかった！"},
+          {img:"実績解除画像/ex008.jpg",text:"旅行めちゃめちゃ楽しかった！"},
           null,
           null,
         ],
@@ -323,19 +323,10 @@
       const idx = +btn.dataset.idx;
       const specialPresets = ["day1", "day2"]; // プリセット名を更新
 
-      // 最後のマスはクリック禁止 (day1, day2の最後のセルは自動解除されるため)
-      if (specialPresets.includes(presetEl.value)) {
-        const allBtns = Array.from(cellsEl.querySelectorAll('button'))
-                        .filter(b => labels[b.dataset.idx] !== null);
-        const lastBtn = allBtns[allBtns.length - 1];
-        if (btn === lastBtn) return;
-      }
-
       const lit = btn.classList.toggle('lit');
       btn.setAttribute('aria-pressed', String(lit));
       updateCounts();
       save();//クリックごとに自動保存
-      // checkProgressButtons(); // 進捗ボタン削除のためコメントアウトまたは削除
     }
 
     function resetAll() {
